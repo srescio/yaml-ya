@@ -11,20 +11,34 @@
   margin: 0 auto;
 }
 
+input {
+  width: 50px;
+  margin: 10px 50px 10px 0px;
+}
+
 button {
   display: block;
-  margin: 0 auto;
+  margin: 10px auto;
   padding: 10px;
   font-size: 16px;
   cursor: pointer;
 }
 
+pre {
+  border: 1px solid gray;
+  width: 70%;
+  margin: 0 auto;
+  padding: 10px;
+  overflow: auto;
+  text-align: left;
+}
+
 @media (prefers-color-scheme: dark) {
-  .html, body, textarea  {
+  .html, body, textarea, input  {
     background-color: black;
     color: white;
   }
-  textarea {
+  textarea, input {
     background-color: rgb(33, 33, 33);
   }
 }
