@@ -2,6 +2,15 @@
   "name": "yaml-ya",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/srescio/yaml-ya.git"
+  },
+  "author": {
+    "name": "Simone Rescio",
+    "email": "info@simonerescio.it",
+    "url": "https://simonerescio.it"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
