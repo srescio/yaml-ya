@@ -2,6 +2,20 @@
   text-align: center;
 }
 
+#saved-templates {
+  display: inline-flex;
+}
+
+.yaml-horizontal-ctas {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  & > button, & > label select {
+    padding: 5px;
+  }
+}
+
 #yaml-input {
   font-family: monospace;
   font-size: 12px;
@@ -33,6 +47,15 @@ pre {
   text-align: left;
 }
 
+footer {
+  font-size: 9px;
+  margin-top: 20px;
+}
+
+a:visited {
+  color: blue;
+}
+
 @media (prefers-color-scheme: dark) {
   .html, body, textarea, input  {
     background-color: black;
@@ -40,5 +63,8 @@ pre {
   }
   textarea, input {
     background-color: rgb(33, 33, 33);
+  }
+  a:visited {
+    color: lightblue;
   }
 }
