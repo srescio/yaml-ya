@@ -3,16 +3,28 @@
 }
 
 #yaml-input {
+  font-family: monospace;
+  font-size: 12px;
   width: 70%;
   min-height: 300px;
   padding: 10px;
-  font-size: 16px;
   margin: 0 auto;
 }
 
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 @media (prefers-color-scheme: dark) {
-  .html, body, textarea {
+  .html, body, textarea  {
     background-color: black;
     color: white;
+  }
+  textarea {
+    background-color: rgb(33, 33, 33);
   }
 }
