@@ -84,7 +84,6 @@ function App() {
                 <option key={template.name} value={template.name}>{template.name}</option>
               ))}
             </select>
-            {console.log('selectedTemplate', selectedTemplate)}
           </label>
           {selectedTemplate && (
             <button onClick={deleteTemplate}>
