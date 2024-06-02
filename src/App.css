@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+#yaml-input {
+  width: 70%;
+  min-height: 300px;
+  padding: 10px;
+  font-size: 16px;
+  margin: 0 auto;
+}
+
+@media (prefers-color-scheme: dark) {
+  .html, body, textarea {
+    background-color: black;
+    color: white;
+  }
+}
