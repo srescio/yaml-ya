@@ -2,6 +2,10 @@
 
 Tool for generating yaml for HomeAssistant cards for multiple entities where only entity number changes
 
+![yaml-ya](src/yaml-ya-bart.png)
+
+Image made with [bart simpson board generator](https://www.ranzey.com/generators/bart/index.html)
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
