@@ -52,7 +52,7 @@ export function exportJson() {
 }
 
 
-export function importJson() {
+export function importJson(dispatch) {
   // Crea un input di tipo file
   const fileInput = document.createElement('input');
   fileInput.type = 'file';
@@ -69,6 +69,7 @@ export function importJson() {
           const json = JSON.parse(event.target.result);
           // Salva il JSON in yaml-templates
           localStorage.setItem('yaml-templates', JSON.stringify(json));
+          dispatch({ savedTemplates: json });
         } catch (error) {
           console.error('Errore durante l\'analisi del JSON', error);
         }

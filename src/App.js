@@ -44,9 +44,12 @@ function App() {
   }
 
   function deleteTemplate() {
-    const newTemplates = savedTemplates.filter(template => template.name !== selectedTemplate);
-    dispatch({ savedTemplates: newTemplates});
-    reset();
+    const confirmDelete = window.confirm(`⚠ Are you sure you want to delete ${selectedTemplate}? ➡️ 🗑️`);
+    if (confirmDelete) {
+      const newTemplates = savedTemplates.filter(template => template.name !== selectedTemplate);
+      dispatch({ savedTemplates: newTemplates });
+      reset();
+    }
   }
 
   return (
@@ -87,7 +90,7 @@ function App() {
           <button onClick={exportJson}>💾 Export all</button>
         </section>
       )}
-      <button onClick={importJson}>⬇️ Import</button>
+      <button onClick={() => importJson(dispatch)}>⬇️ Import</button>
       <section id="yaml-options">
         <label>Name:
           <input type="text" name="yaml-name" value={name} onChange={e => dispatch({ name: e.target.value })} />
