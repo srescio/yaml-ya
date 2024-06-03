@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer } from 'react';
-import { loadTemplates, loadPreselectedTemplate } from '../storage';
+import { loadTemplates, loadPreselectedTemplate, saveSelectedTemplate, saveTemplates } from '../storage';
 
 const YamlYaContext = createContext();
 
@@ -7,8 +7,13 @@ export function YamlYaContextProvider({ children }) {
 
     function yamlYaReducer(state, newState) {
         if (newState.reset) {
+            localStorage.setItem('yaml-last', '');
+
             return { ...initialState };
         }
+
+        saveSelectedTemplate(newState?.selectedTemplate);
+        saveTemplates(newState?.savedTemplates)
 
         return { ...state, ...newState };
     }

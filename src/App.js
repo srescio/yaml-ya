@@ -3,7 +3,7 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import './App.css';
 import useYamlYaContext from './Components/Context'
-import { exportJson, importJson } from './storage';
+import { exportJson, importJson, templatesArrayUpdate } from './storage';
 
 function App() {
   const { state: {
@@ -18,8 +18,6 @@ function App() {
 
 
   function reset() {
-    localStorage.setItem('yaml-last', '');
-
     dispatch({
       reset: true
     });
@@ -33,7 +31,7 @@ function App() {
     }
 
     dispatch({
-      savedTemplates: [...savedTemplates, { name, yaml, replace, repeat }],
+      savedTemplates: templatesArrayUpdate(savedTemplates, { name, yaml, replace, repeat }),
       selectedTemplate: name,
       ya: tempYa
     });
@@ -47,10 +45,7 @@ function App() {
 
   function deleteTemplate() {
     const newTemplates = savedTemplates.filter(template => template.name !== selectedTemplate);
-    
     dispatch({ savedTemplates: newTemplates});
-    localStorage.setItem('yaml-last', '');
-    localStorage.setItem('yaml-templates', JSON.stringify(newTemplates));
     reset();
   }
 
@@ -66,7 +61,6 @@ function App() {
                 const selectedTemplateValue = e.target.value;
                 const selected = savedTemplates.find(template => template.name === selectedTemplateValue);
                 if (selected) {
-                  localStorage.setItem('yaml-last', selectedTemplateValue);
                   dispatch({
                     selectedTemplate: selectedTemplateValue,
                     yaml: selected.yaml,
@@ -87,7 +81,7 @@ function App() {
           </label>
           {selectedTemplate && (
             <button onClick={deleteTemplate}>
-              🗑️ Delete {name}
+              🗑️ Delete {selectedTemplate}
             </button>
           )}
           <button onClick={exportJson}>💾 Export all</button>

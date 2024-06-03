@@ -1,18 +1,29 @@
-export function save(name, yaml, replace, repeat) {
-    let savedTemplates = JSON.parse(localStorage.getItem('yaml-templates')) || [];
+export function saveTemplates(templates) {
+  if (!templates) {
+    return;
+  }
+  localStorage.setItem('yaml-templates', JSON.stringify(templates))
+}
 
-    let index = savedTemplates.findIndex(template => template.name === name);
+export function saveSelectedTemplate(selectedTemplate) {
+  if (!selectedTemplate) {
+    return;
+  }
+  localStorage.setItem('yaml-last', selectedTemplate);
+}
+
+export function templatesArrayUpdate(array, element) {
+    let index = array.findIndex(template => template.name === element.name);
 
     if (index !== -1) {
         // If template already exist, replace it
-        savedTemplates[index] = { name, yaml, replace, repeat };
+        array[index] = element;
     } else {
         // Otherwise, add new
-        savedTemplates.push({ name, yaml, replace, repeat });
+        array.push(element);
     }
 
-    localStorage.setItem('yaml-templates', JSON.stringify(savedTemplates));
-    localStorage.setItem('yaml-last', JSON.stringify(name));
+    return array;
 }
 
 export function loadPreselectedTemplate() {
