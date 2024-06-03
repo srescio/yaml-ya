@@ -23,3 +23,18 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+/* global Cypress */
+/* global cy */
+
+Cypress.Commands.add('land', () => {
+    cy.visit('/')
+    cy.wait(100)
+})
+Cypress.Commands.add('fillAndYa', (name) => {
+    cy.get('textarea#yaml-input').type('yaml£test')
+    cy.get('input[name="yaml-name"]').clear().type(name)
+    cy.get('input[name="yaml-replace"]').clear().type('£')
+    cy.get('input[name="yaml-repeat"]').clear().type('4')
+    cy.get('button#yaml-ya').click()
+})
