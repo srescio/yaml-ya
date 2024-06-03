@@ -109,8 +109,8 @@ function App() {
         onChange={e => dispatch({ yaml: e.target.value })}
       />
       <section className='yaml-horizontal-ctas'>
-        <button onClick={process} disabled={!yaml || !name || !repeat || !replace}>🚀 ya!</button>
-        <button onClick={reset}>🔄 Reset</button>
+        <button id="yaml-ya" onClick={process} disabled={!yaml || !name || !repeat || !replace}>🚀 ya!</button>
+        <button id="yaml-reset" onClick={reset}>🔄 Reset</button>
       </section>
       {ya && (
         <pre>{ya}</pre>

@@ -29,4 +29,22 @@ describe('yaml ya', () => {
     cy.wait(100)
     cy.get('textarea#yaml-input').should('exist')
   })
+
+  it('should display the process and reset buttons', () => {
+    cy.visit('/')
+    cy.wait(100)
+    cy.get('button#yaml-ya').should('exist')
+    cy.get('button#yaml-reset').should('exist')
+  })
+
+  describe('when loaded with saved templates', () => {
+    it('should display the select template dropdown and export buttons', () => {
+      cy.visit('/')
+      cy.window().its('localStorage').invoke('setItem', 'yaml-templates', JSON.stringify([{ name: 'template1', yaml: 'yaml1' }]))
+      cy.visit('/')
+      cy.wait(100)
+      cy.get('select').should('exist')
+      cy.get('button#yaml-export').should('exist')
+    })
+  })
 })
