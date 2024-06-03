@@ -83,14 +83,14 @@ function App() {
             </select>
           </label>
           {selectedTemplate && (
-            <button onClick={deleteTemplate}>
+            <button id="yaml-delete" onClick={deleteTemplate}>
               🗑️ Delete {selectedTemplate}
             </button>
           )}
-          <button onClick={exportJson}>💾 Export all</button>
+          <button id="yaml-export" onClick={exportJson}>💾 Export all</button>
         </section>
       )}
-      <button onClick={() => importJson(dispatch)}>⬇️ Import</button>
+      <button id="yaml-import" onClick={() => importJson(dispatch)}>⬇️ Import</button>
       <section id="yaml-options">
         <label>Name:
           <input type="text" name="yaml-name" value={name} onChange={e => dispatch({ name: e.target.value })} />
